@@ -45,6 +45,52 @@ skillsHeader.forEach((header) => {
   header.addEventListener('click', toggleSkills);
 })
 
+// Qualification tabs
+const tabs = document.querySelectorAll('[data-target]');
+const tabContents = document.querySelectorAll('[data-content]');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = document.querySelector(tab.dataset.target);
+    tabContents.forEach(tabContent => {
+      tabContent.classList.remove('qualification__active'); 
+    })
+    target.classList.add('qualification__active');
+    tabs.forEach(tab => {
+      tab.classList.remove('qualification__active');
+    })
+    tab.classList.add('qualification__active')
+  })
+})
+
+// Acheivements Modal
+
+const modalViews = document.querySelectorAll('.achievements__modal');
+const modalBtns = document.querySelectorAll('.achievements__button');
+const modalCloseBtns = document.querySelectorAll('.achievements__modal-close');
+
+let modal = function(modalClick){
+  console.log(modalClick);
+  modalViews[modalClick].classList.add('active-modal');
+}
+
+modalBtns.forEach((modalBtn, i) => {
+  modalBtn.addEventListener('click', () => {
+    modalViews[i].classList.add('active-modal');
+    modal(i);
+  })
+})
+
+modalCloseBtns.forEach((modalClose) => {
+  modalClose.addEventListener('click', () => {
+    modalViews.forEach((modalView) => {
+      modalView.classList.remove('active-modal');
+    })
+  })
+})
+
+
+
 // Portflio swiper
 
 let swiper = new Swiper(".portfolio__container", {
