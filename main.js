@@ -1,4 +1,4 @@
-import './css/style.css'
+import './style.css'
 
 // menu
 const navMenu = document.getElementById('nav-menu');
