@@ -67,7 +67,7 @@ body.dark-theme{
   --text-color: hsl(var(--hue-color), 8%, 75%);
   --input-color: hsl(var(--hue-color), 29%, 16%);
   --body-color: hsl(var(--hue-color), 28%, 12%);
-  --container-color: hsl(--hue-color, 29%, 16%); 
+  --container-color: hsl(var(--hue-color), 29%, 16%);
 }
 
 /* Dark-light theme */
@@ -297,6 +297,18 @@ img{
 
 .home__title{
   font-size: var(--big-font-size);
+  animation: home-title 1s 1;
+}
+
+@keyframes home-title {
+  0%{
+    margin-left: -10%;
+    opacity: 0.2
+  }
+  100%{
+    margin-left: 0%;
+    opacity: 1
+  }
 }
 
 .home__subtitle{
@@ -304,10 +316,34 @@ img{
   color: var(--text-color);
   font-weight: var(--font-medium);
   margin-bottom: var(--mb-0-75);
+  animation: home-subtitle 1s 1;
+}
+
+@keyframes home-subtitle {
+  0%{
+    margin-left: -5%;
+    opacity: 0.2
+  }
+  100%{
+    margin-left: 0%;
+    opacity: 1
+  }
 }
 
 .home__description{
   margin-bottom: var(--mb-2);
+  animation: home-desc 1s 1;
+}
+
+@keyframes home-desc {
+  0%{
+    margin-left: -2%;
+    opacity: 0.2
+  }
+  100%{
+    margin-left: 0%;
+    opacity: 1
+  }
 }
 
 .home__scroll{
@@ -418,7 +454,17 @@ img{
 .skills__title{
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--mb-0-5);
+  /* margin-bottom: var(--mb-0-5); */
+}
+
+.skills__data{
+  padding: 0.5rem;
+  background-color: var(--container-color);
+  margin: 0.35rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 15%);
+  transition: .3s;
+  width: fit-content;
 }
 
 .skills__name{
@@ -453,6 +499,9 @@ img{
 .skills__open .skills__list{
   height: max-content;
   margin-bottom: var(--mb-2-5);
+  display: flex;
+  flex-flow: column wrap;
+  max-height: 35vh;
 }
 
 .skills__open .skills__arrow{
@@ -464,6 +513,10 @@ img{
   display: flex;
   justify-content: space-evenly;
   margin-bottom: var(--mb-2);
+}
+
+.qualification__container{
+  max-width: initial;
 }
 
 .qualification__button{
@@ -490,6 +543,7 @@ img{
 .qualification__title{
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
+  margin-bottom: var(--mb-0-5)
 }
 
 .qualification__subtitle{
@@ -650,7 +704,13 @@ img{
 .portfolio__title{
   font-size: var(--h3-font-size);
   margin-bottom: var(--mb-0-5);
-} 
+  font-weight: var(--font-semi-bold);
+}
+
+.portfolio__links{
+  display: flex;
+  gap: 1.5rem;
+}
 
 .portfolio__description{
   margin-bottom: var(--mb-0-75);
@@ -658,6 +718,39 @@ img{
 
 .portfolio__button:hover .button__icon{
   transform: translateX(.25rem);
+}
+
+.portfolio__icon{
+  display: block;
+  font-size: 1.5rem;
+  color: var(--first-color);
+  margin-bottom: var(--mb-1);
+}
+
+.portfolio__tabs{
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+.portfolio__tab {
+  background-color: var(--container-color);
+  padding: 1rem 0.5rem 0.25rem 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 15%);
+  transition: .3s;
+}
+
+.portfolio__more-tab-hide{
+  display: none;
+}
+
+.portfolio__more-hide{
+  display: none;
+}
+
+#portfolio__more{
+  cursor: pointer;
 }
 
 .swiper-button-prev::after,
@@ -715,7 +808,7 @@ img{
 
 .contact__subtitle{
   font-size: var(--small-font-size);
-  color:  var(--text-color-light);
+  /* color:  var(--text-color-light); */
 }
 
 .contact__content{
@@ -738,6 +831,15 @@ img{
   border: none;
   outline: none;
   padding: .25rem .5rem .5rem 0;
+}
+
+.submit-button{
+  font-family: var(--body-font);
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: var(--body-font);
+  font-weight: var(--font-medium);
 }
 
 /* Footer */
@@ -777,6 +879,11 @@ img{
 .footer__social{
   color: #fff;
 }
+.footer__link{
+  text-decoration: underline;
+  color: #fff;
+  font-size: var(--small-font-size);
+}
 
 /* Scroll up */
 .scrollup{
@@ -815,6 +922,7 @@ img{
 
   .nav__menu{
     padding: 2rem .25rem 4rem;
+    left: 0px;
   }
   .nav__list{
     column-gap: 0;
@@ -832,6 +940,10 @@ img{
 
   .qualification__data{
     gap: .5rem;
+  }
+
+  .qualification__tab{
+    display: none;
   }
 
   .achievements__container{
@@ -879,7 +991,7 @@ img{
   }
 
   .section{
-    padding: 6rem 0 2rem;
+    padding: 5rem 0 2rem;
   }
   .section__subtitle{
     margin-bottom: 4rem;
@@ -916,7 +1028,7 @@ img{
   }
 
   .home__container{
-    row-gap: 5rem;
+    row-gap: 1rem;
   }
   .home__content{
     padding-top: 5.5rem;
@@ -947,6 +1059,10 @@ img{
     justify-content: center;
   }
   .achievements__icon{
+    font-size: 2rem;
+  }
+
+  .portfolio__icon{
     font-size: 2rem;
   }
   .achievements__modal-content{

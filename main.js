@@ -32,13 +32,18 @@ const skillsContent = document.querySelectorAll('.skills__content');
 const skillsHeader = document.querySelectorAll('.skills__header');
 
 function toggleSkills(){
-  let itemCLass = this.parentNode.className;
-  for(let i=0; i < skillsContent.length; i++){
-    skillsContent[i].className = 'skills__content skills__close'
-  }
-  if(itemCLass === 'skills__content skills__close'){
+  let itemClass = this.parentNode.className;
+  // for(let i=0; i < skillsContent.length; i++){
+  //   skillsContent[i].className = 'skills__content skills__close'
+  // }
+  // if(itemCLass === 'skills__content skills__close'){
+  //   this.parentNode.className = 'skills__content skills__open'
+  // }
+  if(itemClass === 'skills__content skills__close'){
     this.parentNode.className = 'skills__content skills__open'
+    return;
   }
+  this.parentNode.className = 'skills__content skills__close'
 }
 
 skillsHeader.forEach((header) => {
@@ -89,23 +94,16 @@ modalCloseBtns.forEach((modalClose) => {
   })
 })
 
+// portfolio show more
 
-
-// Portflio swiper
-
-let swiper = new Swiper(".portfolio__container", {
-  loop: true,
-  cssMode: true,
-
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
+const portfolioMore = document.getElementById('portfolio__more');
+const portfolioMoreTabs = document.querySelectorAll('.portfolio__more-tab-hide');
+portfolioMore.addEventListener('click', () =>{
+  portfolioMoreTabs.forEach(moreTabs => {
+    moreTabs.classList.remove('portfolio__more-tab-hide');
+  })
+  portfolioMore.classList.add('portfolio__more-hide');
+})
 
 // Scroll sections active link
 
@@ -174,4 +172,11 @@ themeButton.addEventListener('click', () => {
     // We save the theme and the current icon that the user chose
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
+})
+
+// Form submit
+
+document.getElementById('form-submit').addEventListener('click', () => {
+  console.log('submitted');
+  document.getElementById("contact__form").submit();
 })
