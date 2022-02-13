@@ -537,6 +537,11 @@ img{
   margin-right: var(--mb-0-25);
 }
 
+span.qualification__subtitle_inner {
+  position: relative;
+  left: 1rem;
+}
+
 .qualification__data{
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
@@ -544,7 +549,7 @@ img{
 }
 
 .qualification__title{
-  font-size: var(--normal-font-size);
+  font-size: var(--h3-font-size);
   font-weight: var(--font-medium);
   margin-bottom: var(--mb-0-5)
 }
