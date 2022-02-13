@@ -524,6 +524,8 @@ img{
   font-size: var(--h3-font-size);
   font-weight: var(--font-medium);
   cursor: pointer;
+  border: 1px solid;
+  padding: 0 var(--mb-0-25);
 }
 
 .qualification__button:hover{
@@ -911,10 +913,6 @@ img{
     gap: .5rem;
   }
 
-  .qualification__tab{
-    display: none;
-  }
-
   .achievements__container{
     grid-template-columns: max-content;
     justify-content: center;
@@ -922,6 +920,12 @@ img{
   .achievements__modal{
     padding: 0 .5rem;
   } 
+}
+
+@media screen and (max-width: 376px) {
+  .qualification__tab{
+    display: none;
+  }
 }
 
 /* For medium devices */
